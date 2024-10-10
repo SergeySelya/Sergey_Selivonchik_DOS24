@@ -1,101 +1,45 @@
-provider "vix" {
-    // valid options are: "fusion", "workstation", "serverv1", "serverv2", "player"
-    // and "workstation_shared"
-    product = "fusion"
-    verify_ssl = false
-
-    // clone_type can be "full" or "linked". Advantages of one over the other
-    // are described here: https://www.vmware.com/support/ws5/doc/ws_clone_typeofclone.html
-    // cloning_strategy = "linked"
+terraform {
+  required_providers {
+    virtualbox = {
+      source = "daria-barsukova/virtualbox"
+      version = "0.0.2"
+    }
+  }
 }
 
-/*resource "vix_vswitch" "vmnet10" {
-    name = "vmnet10"
-    nat = true
-    dhcp = true
-    range = "192.168.1.0/24"
-    host_access = true
-}*/
+provider "virtualbox" {
+    # Define a VirtualBox server resource for creating VMs with network configurations
+    resource "virtualbox_server" "VM_network" {
+        count   = 0
+        name    = format("VM_network-%02d", count.index + 1)  # Name of the VM
+        basedir = format("VM_network-%02d", count.index + 1)  # Base directory for VM files
+        cpus    = 3                                           # Number of CPUs for the VM
+        memory  = 500                                         # Amount of memory in MB for the VM
 
+        # Network adapter configurations
+        network_adapter {
+            network_mode = "nat"                                # NAT mode for network adapter
+            port_forwarding {
+            name      = "rule1"
+            hostip    = ""                                    # Host IP address for port forwarding
+            hostport  = "80"                                  # Host port for port forwarding
+            guestip   = ""                                    # Guest IP address for port forwarding
+            guestport = "63222"                               # Guest port for port forwarding
+            }
+        }
+        network_adapter {
+            network_mode    = "nat"                             # NAT mode for network adapter
+            nic_type        = "82540EM"                         # Type of network interface controller
+            cable_connected = true                              # Whether the cable is connected
+        }
+        network_adapter {
+            network_mode = "hostonly"                          # Host-only mode for network adapter
+        }
+        network_adapter {
+            network_mode = "bridged"                            # Bridged mode for network adapter
+            nic_type     = "virtio"                             # Type of network interface controller
+        }
 
-resource "vix_vm" "core01" {
-    name = "core01"
-    description = "Terraform VMWARE VIX test"
-
-    /*
-    * The provider will download, verify, decompress and untar the image.
-    * Ideally you will provide images that have VMware Tools installed already,
-    * otherwise the provider will be considerably limited for what it can do.
-    */
-    image {
-        url = "https://github.com/hooklift/boxes/releases/download/stable/coreos-stable-vmware.box"
-        checksum = "5b20ba225b5d4e1a3c01e071f8c9f607ed6c6e1d88e6ed5a66387aaf75b9ee2b"
-        checksum_type = "sha256"
-
-        // If image is encrypted we need to provide a password
-        // password = "${var.password}"
-    }
-
-    cpus = 2
-
-    // Memory sizes must be provided using IEC sizes such as: kib, ki, mib, mi,
-    // gib or gi.
-    memory = "1.0gib"
-    upgrade_vhardware = false
-    tools_init_timeout = "15s"
-
-    // Be aware that GUI does not work if the virtual machine is encrypted
-    gui = true
-
-    // Whether to enable or disable all shared folders for this VM
-    sharedfolders = true
-
-    // Advanced configuration
-    /*network_adapter {
-        // type can be either "custom", "nat", "bridged" or "hostonly"
-        type = "custom"
-        mac_address = "00:00:00:00:00"
-        mac_address_type = "static"
-
-        // vswitch is only required when network type is "custom"
-        vswitch = ${vix_vswitch.vmnet10.name}
-
-        // vmxnet3 requires VMware Tools
-        driver = "vmxnet3"
-    }*/
-
-    // Minimal required
-    network_adapter {
-        type = "bridged"
-    }
-
-    network_adapter {
-        type = "nat"
-        mac_address = "00:0c:29:f7:8e:03"
-        mac_address_type = "static"
-    }
-
-    network_adapter {
-        type = "hostonly"
-    }
-
-    cdrom {
-        bus_type = "scsi"
-        image = "/Users/camilo/Dropbox/Development/hooklift/boxes/cfgdrv.iso"
-    }
-
-    // Adds an IDE device by default and autodetects the host's CDROM
-    cdrom {}
-
-    shared_folder {
-        name = "Dev1"
-        enable = false
-        guest_path = "/home/camilo/dev"
-        host_path = "/Users/camilo/Development"
-        readonly = false
-    }
+        status = "poweroff"                                   # Initial status of the VM
 }
-
-output "IP address" {
-    value = "${vix_vm.core01.ip_address}"
 }
