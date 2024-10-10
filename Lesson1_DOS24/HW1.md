@@ -11,10 +11,10 @@
 3. Описать локальную инфраструктуру в terraform, код загрузить в репозиторий.
 
 ## Решение:
-1.  Установил VirtualBox для MacOS/Apple Silicon: https://www.virtualbox.org/wiki/Downloads
-2. Скачал iso образ сервера ubuntu: https://ubuntu.com/download/server/arm
-3. развернул ubuntu server в VirtualBox и настроил ssh по гайду: https://www.devskillbuilder.com/setting-up-ubuntu-server-in-virtualbox-and-accessing-it-via-ssh-70b1ed9fa3ae
-4. Настройка ssh подключения к ubuntu server
+1.  Установил VirtualBox для MacOS/Apple Silicon: https://www.virtualbox.org/wiki/Downloads.
+2. Скачал iso образ сервера ubuntu: https://ubuntu.com/download/server/arm.
+3. Развернул ubuntu server в VirtualBox и настроил ssh по гайду: https://www.devskillbuilder.com/setting-up-ubuntu-server-in-virtualbox-and-accessing-it-via-ssh-70b1ed9fa3ae.
+4. Настройка ssh подключения к ubuntu server.
 ```bash
 # Set Up SSH Service
 sudo apt install openssh-server
@@ -28,7 +28,7 @@ sudo systemctl enable ssh
 sudo groupadd vboxusers
 sudo usermod -aG vboxusers <username>
 ```
-5. Установил Visual Studio Code: https://code.visualstudio.com/download
+5. Установил Visual Studio Code: https://code.visualstudio.com/download.
 6. В терминале VS code подключился по ssh к ubuntu server(VirtualBox).
 ```Слева VS code. Справа VirtualBox.```
 ![alt text](image-1.png)
