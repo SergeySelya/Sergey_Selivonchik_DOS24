@@ -33,4 +33,4 @@ sudo usermod -aG vboxusers <username>
 ```Слева VS code. Справа VirtualBox.```
 ![alt text](image-1.png)
 
-7. Описать локальную инфраструктуру в terraform: main.tf
+7. Описал локальную инфраструктуру в terraform: main.tf
