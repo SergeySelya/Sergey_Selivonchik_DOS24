@@ -9,8 +9,8 @@
 ## Решение:
 1. Скачал iso образ сервера Ubuntu 24.04.1 (Noble Numbat,64-bit ARM): https://cdimage.ubuntu.com/noble/daily-live/current/
 2. Установил ubuntu в интерактвном режиме c автоматической установкой(разметкой дисков)
-![alt text](image.png)
+![alt text](template/image/image.png)
 3. Установил ubuntu в интерактвном режиме c ручной установкой(разметкой дисков)
-![alt text](image-1.png)
-![alt text](image-2.png)
+![alt text](template/image/image-1.png)
+![alt text](template/image/image-2.png)
 
