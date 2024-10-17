@@ -30,8 +30,7 @@ sudo usermod -aG vboxusers <username>
 5. Установил Visual Studio Code: https://code.visualstudio.com/download.
 6. В терминале VS code подключился по ssh к ubuntu server(VirtualBox).
 ```Слева VS code. Справа VirtualBox.```
-![alt text](image-1.png)
-
+![alt text](template/image/image-1.png)
 7. Описал локальную инфраструктуру в terraform: main.tf
 8. Создал аккаунт на гитхаб, https://github.com/SergeySelya/Sergey_Selivonchik_DOS24
 
