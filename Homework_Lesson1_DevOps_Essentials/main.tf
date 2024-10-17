@@ -8,4 +8,9 @@ resource "virtualbox_server" "VM_without_image" {
     status = "poweroff"
     os_id = "Ubuntu"
     image = "/Users/selivonchik/Downloads/ubuntu-24.04.1-live-server-arm64.iso"
+
+    network_adapter {
+    type           = "hostonly"
+    host_interface = "vboxnet1"
+  }
 }
