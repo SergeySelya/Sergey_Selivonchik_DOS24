@@ -13,4 +13,17 @@
 3. Установил ubuntu в интерактвном режиме c ручной установкой(разметкой дисков)
 ![alt text](template/image/image-1.png)
 ![alt text](template/image/image-2.png)
+4. Скачал iso образ сервера ubuntu: https://ubuntu.com/download/server/arm.
+Установил с разметкой диска.
+![alt text](template/image/image4.png)
 
+Установил Ubuntu Desktop (графическое окружение).
+```bash
+sudo apt install ubuntu-desktop
+```
+Перезагрузите систему
+```bash
+sudo reboot
+```
+
+![alt text](template/image/image-3.png)
