@@ -12,8 +12,8 @@
 
 ```bash
 хостовая ОС - 192.168.100.11
-VM1 - 192.168.100.22
-VM2 - 192.168.100.20
+VM1 - 192.168.100.20
+VM2 - 192.168.100.22
 ```
 
 3. Настройка сети , хостовой ОС mac(AppleSilicon).
@@ -24,6 +24,8 @@ VM2 - 192.168.100.20
 Открыть  Apple menu -> “System Preferences” -> sharing
 включить плашку ```Remote Login```
 ![alt text](template/image/image2.png)
+
+![alt text](template/image/image4.png)
 
 4. Настройка сети , виртуальной машины VM1
 
@@ -36,7 +38,9 @@ sudo apt install openssh-server
 sudo systemctl start ssh
 sudo systemctl enable ssh
 # Инсталируем публичный ключ на удаленной машине
-ssh-copy-id <username>@192.168.100.20
+ssh-keygen -t rsa
+ssh-copy-id <username>@192.168.100.22
+ssh-copy-id <username>@192.168.100.11
 ```
 в разделе “Network” VirtualBox , для Adapter 1 установил параметр “Bridged Adapter.”
 
@@ -47,7 +51,10 @@ sudo useradd -m <username>
 sudo passwd <username>
 sudo usermod -aG vboxusers <username>
 ```
-5. Настройка сети , виртуальной машины
+```Слева VM2 / Справа хостовая ОС```
+![alt text](template/image/image3.png)
+
+5. Настройка сети , виртуальной машины VM2
 
 ``` VM2 -x> хостовая ОС ```
 
@@ -57,8 +64,6 @@ sudo usermod -aG vboxusers <username>
 sudo apt install openssh-server
 sudo systemctl start ssh
 sudo systemctl enable ssh
-# Инсталируем публичный ключ на удаленной машине
-ssh-copy-id <username>@192.168.100.22
 ```
 в разделе “Network” VirtualBox , для Adapter 1 установил параметр “Bridged Adapter.”
 
@@ -81,4 +86,4 @@ sudo iptables -A OUTPUT -p tcp --dport ssh -d 192.168.100.11 -j DROP
 # -d – установить IP получателя;
 # -j – выбрать действие при подтверждении правила.
 ```
-![alt text](template/image-1.png)
+![alt text](template/image/image-1.png)
