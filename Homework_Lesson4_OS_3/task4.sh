@@ -1,29 +1,20 @@
 #!/bin/bash  
 
-# Check if the right number of arguments are passed  
-if [ "$#" -ne 2 ]; then  
-    echo "Usage: $0 filename new_extension"  
-    exit 1  
-fi  
+# Input string  
+input_string="This is an example string for substring extraction."  
 
-filename="$1"  
-NEW_EXT="$2"  
+# Character boundaries  
+start=11  # starting position for substring (1-based index)  
+end=18    # ending position for substring (1-based index)  
 
-# Check if the file exists  
-if [ ! -e "${filename}" ]; then  
-    echo "File does not exist."  
-    exit 1  
-fi  
+# Option to delete the substring (true/false)  
+delete=false  
 
-# Extract the current extension  
-CURRENT_EXT="${filename##*.}"  
-
-# Check if the current extension is the same as the filename (indicating no extension)  
-if [ "$CURRENT_EXT" == "$filename" ]; then  
-    echo "The file has no extension."  
+# Extracting the substring  
+if [ "$delete" = false ]; then  
+    substring=$(echo "$input_string" | cut -c"$start"-"$end")  
+    echo "Extracted substring: '$substring'"  
 else  
-    # Rename file with new extension  
-    BASENAME="${filename%.*}"  
-    mv "$filename" "$BASENAME.$NEW_EXT"  
-    echo "File extension changed to .$NEW_EXT."  
+    modified_string=$(echo "$input_string" | cut -c1-"$((start - 1))" && echo "$input_string" | cut -c"$((end + 1))"-)  
+    echo "Modified string after deletion: '$modified_string'"  
 fi  
