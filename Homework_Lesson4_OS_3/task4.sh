@@ -1,16 +1,16 @@
 #!/bin/bash  
 
-# Input string  
+# редактируемая строка  
 input_string="This is an example string for substring extraction."  
 
-# Character boundaries  
-start=11  # starting position for substring (1-based index)  
-end=18    # ending position for substring (1-based index)  
+# диапазон изменяемого элемента подстроки
+start=11  # начальная позиция для подстроки 
+end=18    # конечная позиция для подстроки  
 
-# Option to delete the substring (true/false)  
+# опция удаления(true - все кроме диапазона, false - сам диапазон)
 delete=false  
 
-# Extracting the substring  
+# Изменение строки в соотвествии с опцией и диапазоном подстроки 
 if [ "$delete" = false ]; then  
     substring=$(echo "$input_string" | cut -c"$start"-"$end")  
     echo "Extracted substring: '$substring'"  
