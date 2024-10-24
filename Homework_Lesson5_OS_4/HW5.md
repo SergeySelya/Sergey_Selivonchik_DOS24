@@ -31,8 +31,6 @@ sudo apt-get clean - запущенная программа очистки ке
 ![alt text](template/image/image.png)
 
 2. Запуск демона приложения через systemd
-создаем файл service unit
-/etc/systemd/system/myapp.service
 
 ```bash
 # скачивам nodejs
