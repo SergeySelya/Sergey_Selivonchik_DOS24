@@ -1,11 +1,14 @@
 #!/bin/bash  
 
-# редактируемая строка  
-input_string="This is an example string for substring extraction."  
+# редактируемая строка
+input_string=$1
+start=$2
+end=$3  
+#input_string="This is an example string for substring extraction."  
 
 # диапазон изменяемого элемента подстроки
-start=11  # начальная позиция для подстроки 
-end=18    # конечная позиция для подстроки  
+#start=11  # начальная позиция для подстроки 
+#end=18    # конечная позиция для подстроки  
 
 # опция удаления(true - все кроме диапазона, false - сам диапазон)
 delete=false  
