@@ -91,3 +91,4 @@ sudo systemctl enable rsync
 gsutil cp -r /home/backup/sergey_selivonchik/ gs://tms_123121419djscj_test
 gsutil rsync -d -r /home/backup/sergey_selivonchik gs://tms_123121419djscj_test
 ```
+![alt text](template/image/image.png)
