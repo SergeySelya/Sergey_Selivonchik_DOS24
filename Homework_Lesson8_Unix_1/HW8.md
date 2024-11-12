@@ -76,6 +76,7 @@ gsutil rsync -d -r /home/backup/sergey_selivonchik gs://tms_123121419djscj_test
 # create file watch_dir.sh
 sudo nano watch_dir.sh
 chmod +x watch_dir.sh
+sudo apt install inotify-tools
 
 #!/bin/sh
 WATCH_DIR="/home/backup/sergey_selivonchik"
