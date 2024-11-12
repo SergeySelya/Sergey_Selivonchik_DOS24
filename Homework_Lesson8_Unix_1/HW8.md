@@ -34,7 +34,8 @@ sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev \
 libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
 xz-utils tk-dev libffi-dev liblzma-dev git
 
-pyenv install 3.10.4 -v
+pyenv install 3.11.10 -v
+pyenv global 3.11.10
 ```
 
 ```bash
@@ -56,30 +57,6 @@ gcloud init
 ```bash
 # устанавливаем rsync 
 sudo apt-get install rsync  
-
-# создаем конфигурационный файл /etc/rsyncd.conf
-sudo nano /etc/rsyncd.conf
-# записываем его, подставляя ip своей VM
-uid = swift
-gid = swift
-log file = /var/log/rsyncd.log
-pid file = /var/run/rsyncd.pid
-address = 192.168.100.20
-[account]
-max connections = 2
-path = /srv/node/
-read only = false
-lock file = /var/lock/account.lock
-[container]
-max connections = 2
-path = /srv/node/
-read only = false
-lock file = /var/lock/container.lock
-[object]
-max connections = 2
-path = /srv/node/
-read only = false
-lock file = /var/lock/object.lock
 
 # запускаем rsync и ставим ему статус enable
 sudo service rsync start
@@ -116,4 +93,39 @@ ExecStart=bash /usr/bin/watch_dir.sh
 
 # start service
 sudo systemctl start mysync.service
+```
+
+
+2. FDISK + LVM (*настроим синхронизацию между двумя VM1 , VM2)
+
+VM1 настроена в пункте 1, по примеру настраиваем VM2.
+Настроим службу rsync-daemon на VM1:
+```bash
+sudo nano /etc/rsyncd.conf
+
+[my-backup]
+comment = My backup directory on this server
+path = /home/my-backup
+# Разрешим доступ к этому модулю только с IP-адреса одного локального компьютера
+hosts allow = 192.168.100.20
+hosts deny = *
+sudo nano
+
+# Пользователь, от имени которого производятся операции с файлами, и его группа
+uid = <пользователь>
+gid = <группа>
+
+# Разрешим доступ к службе только с IP-адреса сервера
+hosts allow = 192.168.1.1
+hosts deny = *
+read only = no
+
+[my-home-dir]
+comment = Home directory on my computer
+# Путь к каталогу для синхронизации
+path = /home/backup/sergey_selivonchik
+```
+# резервное копирование на сервер
+``` bash
+rsync -av /home/backup/sergey_selivonchik 192.168.1.1::my-backup
 ```
