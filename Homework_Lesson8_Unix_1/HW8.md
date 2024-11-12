@@ -92,3 +92,28 @@ gsutil cp -r /home/backup/sergey_selivonchik/ gs://tms_123121419djscj_test
 gsutil rsync -d -r /home/backup/sergey_selivonchik gs://tms_123121419djscj_test
 ```
 ![alt text](template/image/image.png)
+
+## automotive sync with daemon, when backup is edit (TEST!!!)
+
+```bash
+# create file watch_dir.sh
+sudo nano watch_dir.sh
+chmod +x watch_dir.sh
+
+#!/bin/sh
+WATCH_DIR="/home/backup/sergey_selivonchik"
+while inotifywait -r -e modify,create,delete "$WATCH_DIR"; do
+echo "start sync dir"
+cd /home/backup/sergey_selivonchik
+gsutil rsync /home/backup/sergey_selivonchik gs://tms_123121419djscj_test
+done
+
+# create service unit
+sudo nano /etc/systemd/system/mysync.service
+
+[Service]
+ExecStart=bash /usr/bin/watch_dir.sh
+
+# start service
+sudo systemctl start mysync.service
+```
