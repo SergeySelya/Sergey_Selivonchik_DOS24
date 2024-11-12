@@ -93,7 +93,7 @@ gsutil rsync -d -r /home/backup/sergey_selivonchik gs://tms_123121419djscj_test
 ```
 ![alt text](template/image/image.png)
 
-## automotive sync with daemon, when backup is edit (TEST!!!)
+## Автоматическая синхронизация с GCP при внесении изменений в директорию (в процессе написания!!!)
 
 ```bash
 # create file watch_dir.sh
