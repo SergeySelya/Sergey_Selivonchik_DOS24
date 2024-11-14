@@ -2,7 +2,7 @@
 cd /home/$USER
 mkdir -p practice
 cd practice
-cat << EOF > memo4
+cat << EOF > memo
 @REM AUTOEXEC.BAT DTK 386/40
 ECHO OFF
 Path c:\dos;c:\stacker;c:\Util;c:\NC;C:\MOUSE
