@@ -87,4 +87,13 @@ testcase.c
 4.3 *Установите утилиту logrotate, которая помещает access.log и error.log веб-сервера
 Apache в /var/log/app/. В системе он работает как пользователь и группа www-data
 ## Решение
+task1:
+copy file task1.sh on your VM , and start
+``` bash
+./task1.sh
+```
+
+
+
+
 
