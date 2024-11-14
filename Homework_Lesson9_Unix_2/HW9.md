@@ -84,7 +84,7 @@ testcase.c
 Просмотрите логи действий пользователей системы.
 Опционально :
 - 4.2 * Установите веб-сервер Apache 2.
-- 4.3 *Установите утилиту logrotate, которая помещает access.log и error.log веб-сервера
+- 4.3 * Установите утилиту logrotate, которая помещает access.log и error.log веб-сервера
 Apache в /var/log/app/. В системе он работает как пользователь и группа www-data
 ## Решение
 1. Задание 1:
@@ -122,12 +122,14 @@ i — перейти в режим ввода с текущей позиции
 ```
 4. Задание 4:
 Устанавливаем и запускаем nginx:
-`sudo apt install nginx`
-`sudo systemctl start nginx.service`
-Проверим логирование nginx
+```bash
+sudo apt install nginx
+sudo systemctl start nginx.service
 ```
-bash
-# создаlbv два файла размером в 10 и 100 мегабайт:
+Проверим логирование nginx
+
+```bash
+# создал два файла размером в 10 и 100 мегабайт:
 sudo truncate -s 10M /var/www/html/10mb.test
 sudo truncate -s 100M /var/www/html/100mb.test
 # создадим пустой файл empty.test
@@ -143,16 +145,37 @@ curl -i http://localhost/100mb.test
 
 # посмотрим лог nginx
 tain -n 100 /var/log/nginx/access.log
+```
 ![alt text](template/image/image.png)
-
+```bash
 # проверяю уровень нагрузки на OS, с помощью htop (по F3 ищу nginx процессы)
 # по скрину видно что nginx процессы находятся в статусе sleep (S), соотвественно нагрузки нет
-`sudo apt install htop`
+sudo apt install htop
+```
 ![alt text](template/image/image-1.png)
+
+## *4.2 - *4.3 Устанавливаем apach и настраиваем логи с помощью logrotate
+```bash
+sudo apt install apache2
+sudo ufw enable
+sudo ufw allow 22
+sudo ufw status
+# редактируем конфиг  etc/logrotate.d/apache2
+sudo vim etc/logrotate.d/apache2
+# Создаем директорию /var/log/app и даем права 755:
+sudo chmode 755 /var/log/app
+sudo chmode 755 /var/log/apache2
+# Добавляем строчку 
+```bash
+rsync -avzr /var/log/apache2/ /var/log/app
 ```
 
+![alt text](template/image/image3.png)
 
-Установить утилиту nginx, посмотреть ее логи и также уровень нагрузки на ОС.
-Просмотрите логи действий пользователей системы.
+Для проверки можно запустил logrotate вручную:
+```bash
+sudo logrotate -f /etc/logrotate.d/apache2
+```
 
+![alt text](template/image/image4.png)
 
