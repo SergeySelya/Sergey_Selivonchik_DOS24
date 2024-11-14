@@ -1,0 +1,31 @@
+#!/bin/bash
+cd /home/$USER
+mkdir -p practice
+cd practice
+cat << EOF > memo4
+@REM AUTOEXEC.BAT DTK 386/40
+ECHO OFF
+Path c:\dos;c:\stacker;c:\Util;c:\NC;C:\MOUSE
+SET PROMPT=$P$G
+SET TMP=C:\TEMP
+LH C:\UTIL\RKEGA
+goto %config%
+:student1
+C:\DOS\SMARTDRV.EXE C+ 2048 1024
+goto nc
+:student2
+APPEND E:\tc\bgi
+:teacher
+PATH %path%E:\windows;e:\tc;e:\tc\bin;e:\foxpro;
+goto win
+:ONC
+PATH %path%G:\pctcp;
+SET TZ=GMT
+goto nc
+:nc
+nc.exe
+goto end
+win.com
+:end
+EOF
+
