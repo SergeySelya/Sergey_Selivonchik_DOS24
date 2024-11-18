@@ -71,6 +71,13 @@ gsutil rsync -d -r /home/backup/sergey_selivonchik gs://tms_123121419djscj_test
 ![alt text](template/image/image.png)
 
 ## Автоматическая синхронизация с GCP при внесении изменений в директорию (в процессе написания!!!)
+Перед этим установим необходимую версию питона для Shell
+```bash
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+exec $SHELL 
+```
 
 ```bash
 # create file watch_dir.sh
