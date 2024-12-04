@@ -3,11 +3,11 @@
 string=$1
 catalog_name=$2
 
-if [[ "$catalog_name" == "test_catalog" ]]; then
+if [ $catalog_name == "test_catalog" ]; then
 catalog_name=$(pwd | sed 's/\/Homework_Lesson11_Bash_Shell_1//')
 fi
 
-files=($(grep -rl "$string" "$catalog_name"))
+files=$(grep -rl "$string" "$catalog_name")
 
 echo "Найденные файлы:"
 for file in "${files[@]}"; do
