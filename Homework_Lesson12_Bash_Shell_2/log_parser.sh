@@ -13,7 +13,7 @@ for line in $result; do
     ip_all+=(${array[4]})
 done
 
-# Output Username
+# Output IP
 echo -e "\nSuccessful logins (IP addresses):"
 for ip in "${ip_all[@]}"; do  
     echo "$ip" | cut -c 4-
