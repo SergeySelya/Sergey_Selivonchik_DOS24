@@ -10,7 +10,7 @@ fi
 files=$(grep -rl "$string" "$catalog_name")
 
 echo "Найденные файлы:"
-for file in "${files[@]}"; do
+for file in ${files[@]}; do
     file_size=$(wc -c "$file" | awk '{print $1}')
     echo "Файл: $file (Размер: $file_size байт)"
 done
