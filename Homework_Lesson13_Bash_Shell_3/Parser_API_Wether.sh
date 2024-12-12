@@ -26,9 +26,10 @@ parser_core_weather() {
     temp_max: $temp_max $UNITS
     pressure: $pressure in
     speed of the wind: $speed m/s
-    sunrise: $(date -r $sunrise)
-    sunset: $(date -r $sunset)
-    date: $(date -r $date)
+    $sunrise
+    sunrise: $(date -d @$sunrise)
+    sunset: $(date -d @$sunset)
+    date: $(date -d @$date)
     "
 }
 

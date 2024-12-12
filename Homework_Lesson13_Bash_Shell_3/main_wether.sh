@@ -13,6 +13,8 @@ main_weather() {
     api_call_wether $CITY $UNITS $LANG $COUNT_DAY
 
     parser_core_weather $UNITS
+
+    rm weather.json
 }
 
 main_weather

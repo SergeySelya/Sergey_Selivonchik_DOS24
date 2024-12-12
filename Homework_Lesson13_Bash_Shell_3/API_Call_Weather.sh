@@ -16,6 +16,6 @@ api_call_wether() {
         echo -e "\nWarn: < ${UNITS} > is not exist you can chose: \n i-imperial \n m-metric\n * metric unit is default \n"
     fi
 
-    output=$(curl -X GET "https://api.openweathermap.org/data/2.5/weather?q=$CITY&appid=$API_ID&units=$UNITS&lang=$LANG&cnt=$COUNT_DAY")
+    output=$(curl -X GET -s "https://api.openweathermap.org/data/2.5/weather?q=$CITY&appid=$API_ID&units=$UNITS&lang=$LANG&cnt=$COUNT_DAY")
     echo $output > weather.json
 }
