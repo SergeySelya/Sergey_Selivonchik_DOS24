@@ -3,10 +3,12 @@ import requests
 from telegram import Update
 from telegram.ext import Application, CommandHandler, CallbackContext
 
-# Вставьте свой API-ключ OpenWeatherMap
-API_KEY = "baa12bb7d2ed31c6c4b31e8a5d40d726"
-# Токен Telegram-бота
-BOT_TOKEN = "7547624413:AAH5QWnNL4MsYJBApfq_ahpc-zlL-OMxzZw"
+# Загрузка переменных из файла .env
+load_dotenv()
+
+# Получаем данные из .env файла
+API_KEY = os.getenv("API_KEY")
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 # Функция получения погоды для города
 def get_weather(city: str, days: int = 1):
