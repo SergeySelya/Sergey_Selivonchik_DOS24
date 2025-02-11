@@ -48,6 +48,13 @@ kubectl edit deployment <deployment-name>
 kubectl delete pod <name>
 # редактирование конфигурации пода
 kubectl edit pod
+# или изменить yaml файл и сделать следующую команды:
+kubectl apply -f config.yml
 
+kubectl create pod my-pod --image=nginx
+kubectl create deployment my-deployment --image=nginx
+kubectl create namespace my-namespace
+
+kubectl get pods --field-selector spec.nodeName=<node-name>
 
 ```
