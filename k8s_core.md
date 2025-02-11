@@ -43,7 +43,9 @@ kubectl apply -f pod-definitions.yaml
 kubectl get deployments
 #редактировать деплойменты
 kubectl edit deployment <deployment-name>
+```
 <img width="905" alt="image" src="https://github.com/user-attachments/assets/dd3ac716-6433-4ccb-8d52-aed31771cce9" />
+```bash
 # удаление пода
 kubectl delete pod <name>
 # редактирование конфигурации пода
