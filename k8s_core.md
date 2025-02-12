@@ -59,7 +59,8 @@ kubectl create namespace my-namespace
 
 kubectl get pods --field-selector spec.nodeName=<node-name>
 ```
-ReplicaSet
+
+# ReplicaSet
 
 <img width="848" alt="image" src="https://github.com/user-attachments/assets/f940dabb-0f4b-41e6-b810-74724093e55e" />
 
