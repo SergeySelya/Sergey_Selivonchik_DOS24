@@ -64,3 +64,16 @@ kubectl get pods --field-selector spec.nodeName=<node-name>
 
 <img width="848" alt="image" src="https://github.com/user-attachments/assets/f940dabb-0f4b-41e6-b810-74724093e55e" />
 
+```bash
+kubectl scale replicaset <name> --replicas=2
+
+```
+
+# deployments
+```bash
+kubectl create -f <name-deployment.yaml>
+```
+
+<img width="1061" alt="image" src="https://github.com/user-attachments/assets/0268f6c1-96a7-43d9-a81e-8d07ad17b0db" />
+
+
