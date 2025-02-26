@@ -7,7 +7,7 @@ provider "aws" {
 
 
 resource "aws_security_group" "jenkins_sg" {
-  name        = "jenkins_security_group_v"
+  name        = "jenkins_security_group_1"
   description = "Allow inbound traffic on port 8080 for Jenkins"
  
   # Разрешаем входящие соединения на порт 22 (SSH) для всех источников
@@ -47,6 +47,7 @@ resource "aws_instance" "jenkins_instance" {
               apt-get update -y
               apt-get install -y git curl
 
+
               # Клонируем репозиторий
               git clone https://github.com/deng4/jenkins.git
               cd jenkins
@@ -56,31 +57,42 @@ resource "aws_instance" "jenkins_instance" {
               chmod +x ./get-docker.sh
               ./get-docker.sh
 
+              # Добавляем пользователя ubuntu в группу docker для доступа к сокету Docker
+              usermod -aG docker ubuntu
+              
+
               # Устанавливаем необходимую зависимость
               apt-get install -y uidmap
+              sudo apt install -y docker-rootless-extras
 
               # Настройка Docker в режиме rootless
               dockerd-rootless-setuptool.sh install
+              
 
               # Устанавливаем Docker Compose и запускаем контейнер
               curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
               chmod +x /usr/local/bin/docker-compose
+
+              newgrp docker
+
               docker-compose up -d
               EOF
   connection {
     type        = "ssh"
     user        = "ubuntu"  # Default user for AWS Ubuntu AMIs
     host        = self.public_ip
+    private_key = file("key.pem")
   }
   provisioner "remote-exec" {
     inline = [
       "echo 'Waiting for setup to finish...'",
-      "until docker ps; do echo 'Waiting for Docker to be ready...'; sleep 5; done",
+      "until docker ps; do echo 'Waiting for Docker to be ready...'; sleep 7; done",
       "echo 'Docker is ready, continuing...'"
     ]
   }
+
   tags = {
-    Name = "Jenkins-test"
+    Name = "Jenkins"
   }
 
 }
