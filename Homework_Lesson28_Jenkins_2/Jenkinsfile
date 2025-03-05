@@ -1,0 +1,84 @@
+pipeline {
+    agent any  // Выполняется на любом доступном агенте
+
+    parameters {
+        string(name: 'APP_VERSION', defaultValue: '1.0.0', description: 'Версия приложения')
+        choice(name: 'ENVIRONMENT', choices: ['dev', 'staging', 'production'], description: 'Окружение для деплоя')
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Клонируем репозиторий
+                git branch: 'main', url: 'https://github.com/your/repository.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                script {
+                    try {
+                        // Запуск сборки приложения с использованием Maven (или Gradle)
+                        echo "Сборка приложения версии ${params.APP_VERSION}"
+                        sh 'mvn clean install'  // Пример команды для Maven
+                    } catch (Exception e) {
+                        currentBuild.result = 'FAILURE'
+                        throw e  // Обработка ошибки
+                    }
+                }
+            }
+        }
+
+        stage('Test') {
+            when {
+                branch 'main'  // Запуск тестов только для ветки main
+            }
+            steps {
+                script {
+                    try {
+                        // Запуск тестов
+                        echo "Запуск тестов для версии ${params.APP_VERSION}"
+                        sh 'mvn test'  // Пример команды для Maven
+                    } catch (Exception e) {
+                        currentBuild.result = 'FAILURE'
+                        throw e  // Обработка ошибки
+                    }
+                }
+            }
+        }
+
+        stage('Deploy') {
+            when {
+                allOf {
+                    branch 'main'  // Разворачиваем только для ветки main
+                    environment name: 'ENVIRONMENT', value: 'production'  // Разворачиваем только в продакшн
+                }
+            }
+            steps {
+                script {
+                    try {
+                        // Развертывание приложения в зависимости от выбранного окружения
+                        echo "Деплой версии ${params.APP_VERSION} в окружение ${params.ENVIRONMENT}"
+                        if (params.ENVIRONMENT == 'production') {
+                            sh 'mvn deploy -Pprod'  // Пример команды для продакшн деплоя
+                        } else {
+                            sh 'mvn deploy -P${params.ENVIRONMENT}'  // Деплой для других окружений
+                        }
+                    } catch (Exception e) {
+                        currentBuild.result = 'FAILURE'
+                        throw e  // Обработка ошибки
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline завершен успешно!'
+        }
+        failure {
+            echo 'Pipeline завершился с ошибкой.'
+        }
+    }
+}
