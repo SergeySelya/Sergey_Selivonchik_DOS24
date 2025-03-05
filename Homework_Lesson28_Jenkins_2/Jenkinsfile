@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Клонируем репозиторий
-                git branch: 'main', url: 'https://github.com/your/repository.git'
+                git branch: 'main', url: 'https://github.com/SergeySelya/Sergey_Selivonchik_DOS24.git'
             }
         }
 
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        // Запуск сборки приложения с использованием Maven (или Gradle)
+                        // Запуск сборки приложения с использованием Maven
                         echo "Сборка приложения версии ${params.APP_VERSION}"
                         sh 'mvn clean install'  // Пример команды для Maven
                     } catch (Exception e) {
@@ -62,7 +62,7 @@ pipeline {
                         if (params.ENVIRONMENT == 'production') {
                             sh 'mvn deploy -Pprod'  // Пример команды для продакшн деплоя
                         } else {
-                            sh 'mvn deploy -P${params.ENVIRONMENT}'  // Деплой для других окружений
+                            sh "mvn deploy -P${params.ENVIRONMENT}"  // Деплой для других окружений
                         }
                     } catch (Exception e) {
                         currentBuild.result = 'FAILURE'
