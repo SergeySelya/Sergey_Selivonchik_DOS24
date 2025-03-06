@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Клонируем репозиторий
-                git branch: 'main', url: 'https://github.com/SergeySelya/Sergey_Selivonchik_DOS24.git'
+                git branch: 'master', url: 'https://github.com/thejungwon/docker-webapp-django.git'
             }
         }
 
@@ -20,7 +20,8 @@ pipeline {
                     try {
                         // Запуск сборки приложения с использованием Maven
                         echo "Сборка приложения версии ${params.APP_VERSION}"
-                        sh 'mvn clean install'  // Пример команды для Maven
+
+
                     } catch (Exception e) {
                         currentBuild.result = 'FAILURE'
                         throw e  // Обработка ошибки
@@ -31,14 +32,14 @@ pipeline {
 
         stage('Test') {
             when {
-                branch 'main'  // Запуск тестов только для ветки main
+                branch 'master'  // Запуск тестов только для ветки main
             }
             steps {
                 script {
                     try {
                         // Запуск тестов
                         echo "Запуск тестов для версии ${params.APP_VERSION}"
-                        sh 'mvn test'  // Пример команды для Maven
+                    
                     } catch (Exception e) {
                         currentBuild.result = 'FAILURE'
                         throw e  // Обработка ошибки
@@ -50,7 +51,7 @@ pipeline {
         stage('Deploy') {
             when {
                 allOf {
-                    branch 'main'  // Разворачиваем только для ветки main
+                    branch 'master'  // Разворачиваем только для ветки main
                     environment name: 'ENVIRONMENT', value: 'production'  // Разворачиваем только в продакшн
                 }
             }
@@ -60,9 +61,11 @@ pipeline {
                         // Развертывание приложения в зависимости от выбранного окружения
                         echo "Деплой версии ${params.APP_VERSION} в окружение ${params.ENVIRONMENT}"
                         if (params.ENVIRONMENT == 'production') {
-                            sh 'mvn deploy -Pprod'  // Пример команды для продакшн деплоя
+                            sh 'cd docker-webapp-django'
+                            sh 'docker-compose up'
                         } else {
-                            sh "mvn deploy -P${params.ENVIRONMENT}"  // Деплой для других окружений
+                            sh 'cd docker-webapp-django'
+                            sh 'docker-compose up'
                         }
                     } catch (Exception e) {
                         currentBuild.result = 'FAILURE'
@@ -71,6 +74,11 @@ pipeline {
                 }
             }
         }
+        stage('Check application') {
+        steps {
+            sh 'curl http://localhost:8080'
+        }
+    }
     }
 
     post {
