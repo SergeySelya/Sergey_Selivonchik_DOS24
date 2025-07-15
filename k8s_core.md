@@ -52,12 +52,23 @@ kubectl delete pod <name>
 kubectl edit pod
 # или изменить yaml файл и сделать следующую команды:
 kubectl apply -f config.yml
-
 kubectl create pod my-pod --image=nginx
+
+# Deployment
 kubectl create deployment my-deployment --image=nginx
 kubectl create namespace my-namespace
+kubectl scale deployment my-deployment --replicas=3
 
-kubectl get pods --field-selector spec.nodeName=<node-name>
+# Services (TYPE: ClusterIP, NodePort, LoadBalancer)
+kubectl expose deployment my-deployment --type=LoadBalancer --port=8080 --targetp-port=80
+kubectl get services
+
+| Тип сервиса      | Доступ откуда?           | Внешний IP?      | Описание                                                                   |
+| ---------------- | ------------------------ | ---------------- | -------------------------------------------------------------------------- |
+| **ClusterIP**    | Только внутри кластера   | ❌ Нет            | По умолчанию. Используется для связи между подами внутри кластера.         |
+| **NodePort**     | Извне через порт на узле | ⚠️ Через IP ноды | Открывает порт на каждом узле (ноде), доступ снаружи через `<NodeIP>:Port` |
+| **LoadBalancer** | Из интернета             | ✅ Да             | Создаёт внешний балансировщик (в облаке), трафик идёт на нужный под        |
+
 ```
 
 # ReplicaSet
@@ -65,13 +76,21 @@ kubectl get pods --field-selector spec.nodeName=<node-name>
 <img width="848" alt="image" src="https://github.com/user-attachments/assets/f940dabb-0f4b-41e6-b810-74724093e55e" />
 
 ```bash
+# Replicaset - контролирует поды
+# Replica - пода
 kubectl scale replicaset <name> --replicas=2
+
 
 ```
 
-# deployments
+# deployments 
 ```bash
+# deployments - обькт который управляет развертыванием имен и обновлением экземпляров приложения
+
 kubectl create -f <name-deployment.yaml>
+kubectl create deployment my-deployment --image=nginx
+kubectl create namespace my-namespace
+kubectl scale deployment my-deployment --replicas=3
 ```
 
 <img width="1061" alt="image" src="https://github.com/user-attachments/assets/0268f6c1-96a7-43d9-a81e-8d07ad17b0db" />
