@@ -5,18 +5,22 @@
 1. Master Node (Узел управления)
 Master Node отвечает за управление кластером, координацию работы всех компонентов и управление состоянием кластера.
 
+<img width="1048" height="778" alt="image" src="https://github.com/user-attachments/assets/ee706e9d-625a-4a93-976b-92f82b34368b" />
+
 # Ключевые модули Kubernetes:
 
-- kube-apiserver — API-сервер.
-- kube-controller-manager — управляет контроллерами.
-- kube-scheduler — назначает поды на ноды.
-- kubelet — агент на каждой ноде.
-- kube-proxy — управляет сетью и маршрутизацией.
-- etcd — распределенная база данных.
+- kube-apiserver — коммуникация между master node и worker node.
+- kube-controller-manager — контролирует все поды в рамках всего кластера.
+- kube-scheduler — назначает поды на ноды , распределяет нагрузку между нодами.
+- kubelet — агент на каждой ноде, для комуникации между разными подами и нодами в кластере.
+- kube-proxy — управляет сетью и маршрутизацией, в рамках каждой ноды.
+- etcd — распределенная база данных, хранение логов.
 - Cloud Controller Manager — взаимодействие с облачными провайдерами.
-- CoreDNS — DNS-резолвинг в кластере.
+- CoreDNS — DNS-резолвинг в кластере (name=ip).
 - kubectl — инструмент для взаимодействия с кластером.
 - Ingress Controller — управление внешним доступом к сервисам.
+  
+![telegram-cloud-photo-size-2-5451721793086813257-y](https://github.com/user-attachments/assets/2119c4c3-a0f0-44a7-9813-69b3c8618b3b)
 
 ```bash
 # кол-во нод
