@@ -31,5 +31,15 @@ VLAN
 IP adress
 <img width="664" height="415" alt="image" src="https://github.com/user-attachments/assets/c2844211-f688-45d9-8f0a-1a34f32d9644" />
 <img width="633" height="381" alt="image" src="https://github.com/user-attachments/assets/e7d42485-fc58-4422-833e-c0fed10cc812" />
+<img width="507" height="333" alt="image" src="https://github.com/user-attachments/assets/32922eb6-f23e-47b6-85c7-4eef1163124a" />
+<img width="673" height="432" alt="image" src="https://github.com/user-attachments/assets/ee83f1e6-b086-4474-a548-5cd3aaae97fa" />
+<img width="508" height="342" alt="image" src="https://github.com/user-attachments/assets/c243205f-38be-4bdc-a3c4-63112974d27e" />
+как по ip фдресу понять где адрес сети а где устройства
+<img width="662" height="417" alt="image" src="https://github.com/user-attachments/assets/145eb873-bd2c-4041-b41e-e1aa82b4dab9" />
+префикс 24 это значит (маска равна 3 оактета по 8 бит)
+<img width="458" height="349" alt="image" src="https://github.com/user-attachments/assets/6f0e3787-4ffa-45a5-a220-8b73cef86353" />
+<img width="673" height="367" alt="image" src="https://github.com/user-attachments/assets/e2d42bc1-dfb8-4b95-a175-0bb50dd3bee1" />
+<img width="620" height="450" alt="image" src="https://github.com/user-attachments/assets/083500f9-c018-4bd3-8ce7-01ffd938de03" />
+<img width="649" height="444" alt="image" src="https://github.com/user-attachments/assets/e07aafa1-2b03-4d1f-84f8-128ab7cab84e" />
 
 
