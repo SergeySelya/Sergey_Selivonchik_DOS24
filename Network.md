@@ -19,4 +19,17 @@ VLAN
 <img width="1015" height="542" alt="image" src="https://github.com/user-attachments/assets/051d7eb3-d89c-4011-984f-6abceb00f6bf" />
 <img width="845" height="516" alt="image" src="https://github.com/user-attachments/assets/536280ca-832f-433c-beb5-8630edf4606a" />
 
+Сетевой уровень
+<img width="1096" height="645" alt="image" src="https://github.com/user-attachments/assets/1baf97a3-758a-4888-9879-a5e5872ebc0a" />
+<img width="634" height="458" alt="image" src="https://github.com/user-attachments/assets/5b1ac39e-6b1c-46a9-b03f-d897e7a39a1c" />
+<img width="678" height="400" alt="image" src="https://github.com/user-attachments/assets/a8fc1f35-d53f-48c4-a906-236620837bf9" />
+<img width="511" height="243" alt="image" src="https://github.com/user-attachments/assets/edf9eefb-94b2-46bd-bd4d-bf34d02733fb" />
+<img width="649" height="325" alt="image" src="https://github.com/user-attachments/assets/012fccbe-1738-4e26-bd56-673fbbbd6198" />
+<img width="611" height="410" alt="image" src="https://github.com/user-attachments/assets/e2f2fc1c-20f6-4da9-8661-00475f26f15e" />
+<img width="688" height="361" alt="image" src="https://github.com/user-attachments/assets/94c835a8-7d8a-42a5-8e42-6872ac43d132" />
+<img width="637" height="418" alt="image" src="https://github.com/user-attachments/assets/a9ce119c-683b-4ee2-b52d-533a98beb2a3" />
+IP adress
+<img width="664" height="415" alt="image" src="https://github.com/user-attachments/assets/c2844211-f688-45d9-8f0a-1a34f32d9644" />
+<img width="633" height="381" alt="image" src="https://github.com/user-attachments/assets/e7d42485-fc58-4422-833e-c0fed10cc812" />
+
 
