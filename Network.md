@@ -64,11 +64,19 @@ IP adress
 <img width="680" height="405" alt="image" src="https://github.com/user-attachments/assets/14db634d-6295-4925-b75b-b8435307eb3c" />
 
 Транспортный уровень
+<img width="1020" height="546" alt="image" src="https://github.com/user-attachments/assets/2f4de5f6-f681-40f6-b7bc-5e0e25c67317" />
 
 типы портов 
 <img width="701" height="473" alt="image" src="https://github.com/user-attachments/assets/b858ba76-5c20-4baf-84b7-0be810637272" />
-
-
+<img width="973" height="695" alt="image" src="https://github.com/user-attachments/assets/c6530e2a-e658-464b-a1c7-4fd243a9a030" />
+<img width="970" height="714" alt="image" src="https://github.com/user-attachments/assets/e813028e-7005-491a-b06f-3543683a97ec" />
+UDP
+<img width="909" height="560" alt="image" src="https://github.com/user-attachments/assets/4ab18b20-edcf-47b5-8df1-62a75784012c" />
+<img width="937" height="689" alt="image" src="https://github.com/user-attachments/assets/090493b9-b21c-4ee9-8e6f-3ca4ada36309" />
+TCP 
+<img width="863" height="679" alt="image" src="https://github.com/user-attachments/assets/009f9c9a-78df-4f5a-b876-ba45a26ec3ba" />
+<img width="951" height="657" alt="image" src="https://github.com/user-attachments/assets/ecd305bc-d1e2-4987-b182-36893370283e" />
+<img width="967" height="636" alt="image" src="https://github.com/user-attachments/assets/c2ae4aaf-2fd9-4197-8d8f-b1f5f8538cca" />
 
 
 
