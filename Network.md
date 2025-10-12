@@ -41,5 +41,34 @@ IP adress
 <img width="673" height="367" alt="image" src="https://github.com/user-attachments/assets/e2d42bc1-dfb8-4b95-a175-0bb50dd3bee1" />
 <img width="620" height="450" alt="image" src="https://github.com/user-attachments/assets/083500f9-c018-4bd3-8ce7-01ffd938de03" />
 <img width="649" height="444" alt="image" src="https://github.com/user-attachments/assets/e07aafa1-2b03-4d1f-84f8-128ab7cab84e" />
+типы ip адрессов 
+<img width="917" height="748" alt="image" src="https://github.com/user-attachments/assets/7e9edac7-45f5-4ed2-bf0e-d24798659707" />
+<img width="1060" height="623" alt="image" src="https://github.com/user-attachments/assets/780e2a04-7ec0-402a-94df-e411788fffc4" />
+частные ip адресса 
+ <img width="1032" height="652" alt="image" src="https://github.com/user-attachments/assets/378cdc5e-9a59-47e3-b111-fe6219dca195" />
+  <img width="987" height="674" alt="image" src="https://github.com/user-attachments/assets/f3a09fb8-2319-4aa7-93ee-fb93c3d0b7fe" />
+
+управляющие протоколы 
+<img width="763" height="479" alt="image" src="https://github.com/user-attachments/assets/7f4d7402-acb7-425e-aa6a-dabba19260ce" />
+<img width="674" height="448" alt="image" src="https://github.com/user-attachments/assets/74b89234-5170-4cf5-a477-be591a63fe45" />
+<img width="710" height="423" alt="image" src="https://github.com/user-attachments/assets/253b615e-3c66-4102-bd8d-54ef6ba557ab" />
+<img width="678" height="465" alt="image" src="https://github.com/user-attachments/assets/ddefb4da-9aca-42df-9467-9dd26a1769a1" />
+<img width="658" height="373" alt="image" src="https://github.com/user-attachments/assets/4f2c02e7-6eef-487c-aea5-2626eff8bb81" />
+
+утилита пинг
+<img width="678" height="472" alt="image" src="https://github.com/user-attachments/assets/0abab78f-fe27-40b5-a1a8-974b949c41ee" />
+утилита traceroute нахот адедреса всех маршрутизаторов 
+<img width="727" height="490" alt="image" src="https://github.com/user-attachments/assets/5895a925-2551-4bfe-ba2a-7364c0bf19de" />
+
+передача пакетов на сетевом и канальном уровне
+<img width="680" height="405" alt="image" src="https://github.com/user-attachments/assets/14db634d-6295-4925-b75b-b8435307eb3c" />
+
+Транспортный уровень
+
+типы портов 
+<img width="701" height="473" alt="image" src="https://github.com/user-attachments/assets/b858ba76-5c20-4baf-84b7-0be810637272" />
+
+
+
 
 
