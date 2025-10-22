@@ -78,5 +78,25 @@ TCP
 <img width="951" height="657" alt="image" src="https://github.com/user-attachments/assets/ecd305bc-d1e2-4987-b182-36893370283e" />
 <img width="967" height="636" alt="image" src="https://github.com/user-attachments/assets/c2ae4aaf-2fd9-4197-8d8f-b1f5f8538cca" />
 
+Сокеты
+<img width="1068" height="678" alt="image" src="https://github.com/user-attachments/assets/0a2bdcc9-66b1-4a91-b788-98ea4fc9436d" />
+<img width="834" height="517" alt="image" src="https://github.com/user-attachments/assets/09c71d91-7ba0-4f7c-9818-981e2fc05ab7" />
+<img width="745" height="505" alt="image" src="https://github.com/user-attachments/assets/9294777a-da6f-46ba-83c6-e7c461f659e3" />
+<img width="739" height="435" alt="image" src="https://github.com/user-attachments/assets/c506f88f-f25c-4b79-bae5-c7dd19cdc236" />
+<img width="788" height="561" alt="image" src="https://github.com/user-attachments/assets/d220bf6a-6d37-494b-975e-60ff0f746b38" />
+<img width="810" height="535" alt="image" src="https://github.com/user-attachments/assets/9e0699d6-fc11-4b1e-928f-8d6675866bf7" />
+<img width="781" height="552" alt="image" src="https://github.com/user-attachments/assets/ce520cb3-9b91-495f-babd-f86206d00b56" />
+<img width="751" height="525" alt="image" src="https://github.com/user-attachments/assets/eac9427d-6001-4bd9-b125-4be8e0a76142" />
+<img width="815" height="459" alt="image" src="https://github.com/user-attachments/assets/f79254d9-d49a-4e2b-9b8b-58f0f3230cad" />
+
+NAT (network address translation)
+<img width="832" height="515" alt="image" src="https://github.com/user-attachments/assets/509fbfc0-9bb1-4701-bbf6-8c8a2177672d" />
+<img width="708" height="552" alt="image" src="https://github.com/user-attachments/assets/a68951df-1394-4a14-b47f-465333657674" />
+<img width="828" height="514" alt="image" src="https://github.com/user-attachments/assets/dca1ea8a-1dbf-45d4-8582-c5f22a0493a3" />
+<img width="811" height="328" alt="image" src="https://github.com/user-attachments/assets/c3a8122b-b95b-4670-a1a3-27c6e16f2970" />
+<img width="796" height="410" alt="image" src="https://github.com/user-attachments/assets/811a3d92-3b73-4aa5-abbf-de4d7f9ff176" />
+
+<img width="669" height="526" alt="image" src="https://github.com/user-attachments/assets/d3680c77-0121-4353-b204-db4fe679738b" />
+![Uploading image.png…]()
 
 
